@@ -98,19 +98,19 @@ public class Camera {
 		}
 
 		if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
-			x += -SPEED * Math.sin(Math.toRadians(rx));
-			z += -SPEED * Math.cos(Math.toRadians(rx));
+			x += SPEED * Math.cos(Math.toRadians(rx));
+			z += SPEED * Math.sin(Math.toRadians(rx));
 		}
 
 		if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-			x += SPEED * Math.sin(Math.toRadians(rx));
-			z += SPEED * Math.cos(Math.toRadians(rx));
+			x += -SPEED * Math.cos(Math.toRadians(rx));
+			z += -SPEED * Math.sin(Math.toRadians(rx));
 		}
-		
+
 		if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
 			y += SPEED;
 		}
-		
+
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
 			y -= SPEED;
 		}
