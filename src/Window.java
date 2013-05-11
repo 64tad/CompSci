@@ -4,7 +4,7 @@ import org.lwjgl.opengl.DisplayMode;
 
 public class Window {
 
-	static Screen screen;
+	public static Screen screen;
 
 	public static final int FPS_CAP = 60;
 
