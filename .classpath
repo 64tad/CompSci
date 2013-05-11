@@ -9,5 +9,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/tommy__123__/Desktop/Coding Stuff/workspace/lwjgl-2.9.1/jar/lwjgl_util.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 7 (MacOS X Default)"/>
+	<classpathentry kind="lib" path="lwjgl-2.9.0/jar/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

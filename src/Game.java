@@ -8,6 +8,7 @@ import static org.lwjgl.opengl.GL11.glEnd;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
+import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex3f;
 
 import org.lwjgl.input.Mouse;
@@ -16,9 +17,16 @@ public class Game {
 
 	static Camera camera;
 
+	static Model test;
+	static Model test2;
+
 	public static void init() {
 		camera = new Camera(0, 10, 0);
 		Mouse.setGrabbed(true);
+
+		test = ModelLoder.loadModel("bunny.obj");
+		test2 = ModelLoder.loadModel("test1.obj");
+		test2.scale = 0.1f;
 	}
 
 	public static void update() {
@@ -29,11 +37,20 @@ public class Game {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glLoadIdentity();
 		camera.useCamera();
-		
-		//Do all game rendering here
-		
+
+		// Do all game rendering here
+
 		glPushMatrix();
 		{
+
+			// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+			glColor3f(1, 0, 1);
+			glTranslatef(10, 10, 10);
+			test.renderVertices();
+			glTranslatef(10, 10, 10);
+			test2.renderVertices();
+
 			glBegin(GL_QUADS);
 			{
 				glColor3f(0, 0, 1);
@@ -45,9 +62,9 @@ public class Game {
 			glEnd();
 		}
 		glPopMatrix();
-		
-		//Stop all game rendering here
-		
+
+		// Stop all game rendering here
+
 	}
 
 }
