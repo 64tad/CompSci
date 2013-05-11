@@ -87,7 +87,6 @@ public class Camera {
 	 * Checks the keyboard and moves the player as needed
 	 */
 	void checkKeyboard() {
-
 		if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
 			z += -SPEED * Math.sin(Math.toRadians(ry + 90));
 			x += -SPEED * Math.cos(Math.toRadians(ry + 90));
@@ -117,7 +116,6 @@ public class Camera {
 		while (Mouse.next()) {
 			int xDelta = Mouse.getEventDX();
 			int yDelta = Mouse.getEventDY();
-
 			ry -= xDelta * SENSITIVITY;
 			rx -= yDelta * SENSITIVITY;
 		}
