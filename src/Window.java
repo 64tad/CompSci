@@ -6,7 +6,7 @@ public class Window {
 
 	public static Screen screen;
 
-	public static final int FPS_CAP = 60;
+	public static final int FPS_CAP = 30;
 
 	/**
 	 * Initialization Window
