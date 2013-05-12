@@ -61,6 +61,7 @@ public class Window {
 	 */
 	public static void cleanUp() {
 		Display.destroy();
+		System.exit(0);
 	}
 
 }

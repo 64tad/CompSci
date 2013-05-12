@@ -14,7 +14,7 @@ public class Camera {
 	public static final float FAR_CLIP = 1000;
 
 	public static final float SENSITIVITY = .5f;
-	public static final float SPEED = .5f;
+	public static final float SPEED = 1f;
 
 	/**
 	 * Default - Spawns the camera at (0,0,0) and looking at (0,0,0)

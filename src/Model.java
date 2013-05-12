@@ -22,19 +22,19 @@ public class Model {
 		{
 			for (Face face : faces) {
 				Vector3f n1 = normals.get((int) face.normal.x - 1);
-				glNormal3f(n1.x, -n1.y, n1.z);
+				glNormal3f(n1.x * scale, -n1.y * scale, n1.z * scale);
 				Vector3f v1 = vertices.get((int) face.vertex.x - 1);
-				glVertex3f(v1.x, -v1.y, v1.z);
+				glVertex3f(v1.x * scale, -v1.y * scale, v1.z * scale);
 
 				Vector3f n2 = normals.get((int) face.normal.y - 1);
-				glNormal3f(n2.x, -n2.y, n2.z);
+				glNormal3f(n2.x * scale, -n2.y * scale, n2.z * scale);
 				Vector3f v2 = vertices.get((int) face.vertex.y - 1);
-				glVertex3f(v2.x, -v2.y, v2.z);
+				glVertex3f(v2.x * scale, -v2.y * scale, v2.z * scale);
 
 				Vector3f n3 = normals.get((int) face.normal.z - 1);
-				glNormal3f(n3.x, -n3.y, n3.z);
+				glNormal3f(n3.x * scale, -n3.y * scale, n3.z * scale);
 				Vector3f v3 = vertices.get((int) face.vertex.z - 1);
-				glVertex3f(v3.x, -v3.y, v3.z);
+				glVertex3f(v3.x * scale, -v3.y * scale, v3.z * scale);
 			}
 		}
 		glEnd();

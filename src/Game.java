@@ -9,9 +9,11 @@ import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glTranslatef;
-import static org.lwjgl.opengl.GL11.glVertex3f;
+import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.input.Mouse;
+
+//TODO MAKE THE GAME REALLY CLOSE!!!
 
 public class Game {
 
@@ -19,6 +21,9 @@ public class Game {
 
 	static Model test;
 	static Model test2;
+	static Model test3;
+
+	static float spin = 0;
 
 	public static void init() {
 		camera = new Camera(0, 10, 0);
@@ -26,11 +31,17 @@ public class Game {
 
 		test = ModelLoder.loadModel("bunny.obj");
 		test2 = ModelLoder.loadModel("test1.obj");
-		test2.scale = 0.1f;
+		test3 = ModelLoder.loadModel("dagger2.obj");
+		test3.scale = .01f;
+		test2.scale = 0.01f;
+
+		glEnable(GL_POINT_SMOOTH);
+		// glPointSize(1.5f);
 	}
 
 	public static void update() {
 		camera.update();
+		spin+=20;
 	}
 
 	public static void render() {
@@ -43,13 +54,16 @@ public class Game {
 		glPushMatrix();
 		{
 
-			// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 			glColor3f(1, 0, 1);
 			glTranslatef(10, 10, 10);
-			test.renderVertices();
+			test.render();
 			glTranslatef(10, 10, 10);
-			test2.renderVertices();
+			test2.render();
+			glTranslatef(10, 10, 10);
+
+			test3.render();
 
 			glBegin(GL_QUADS);
 			{
@@ -60,6 +74,13 @@ public class Game {
 				glVertex3f(0, 0, 100);
 			}
 			glEnd();
+		}
+		glPopMatrix();
+
+		glPushMatrix();
+		{
+			glRotatef(spin, -1, 2, 1);
+			test3.render();
 		}
 		glPopMatrix();
 
