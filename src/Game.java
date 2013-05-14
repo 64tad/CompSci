@@ -1,19 +1,4 @@
-import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_POINT_SMOOTH;
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.glBegin;
-import static org.lwjgl.opengl.GL11.glClear;
-import static org.lwjgl.opengl.GL11.glColor3f;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glRotatef;
-import static org.lwjgl.opengl.GL11.glTexCoord2f;
-import static org.lwjgl.opengl.GL11.glTranslatef;
-import static org.lwjgl.opengl.GL11.glVertex3f;
+import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.input.Mouse;
 
@@ -34,14 +19,8 @@ public class Game {
 		Mouse.setGrabbed(true);
 		Textures.loadTextures();
 
-		test = ModelLoder.loadModel("bunny.obj");
-		test2 = ModelLoder.loadModel("test1.obj");
-		test3 = ModelLoder.loadModel("dagger2.obj");
-		test3.scale = .01f;
-		test2.scale = 0.01f;
-
-		glEnable(GL_POINT_SMOOTH);
-		// glPointSize(1.5f);
+		test = ModelLoder.loadModel("texturetest.obj");
+		test.scale = 0.1f;
 	}
 
 	public static void update() {
@@ -61,18 +40,13 @@ public class Game {
 
 			//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-			glColor3f(1, 0, 1);
-			glTranslatef(10, 10, 10);
-		//	test.render();
-			glTranslatef(10, 10, 10);
-			test2.render();
-			glTranslatef(10, 10, 10);
-
-			test3.render();
+			Textures.getTexture(1).bind();
+			glColor3f(1, 1, 1);
+			test.render();
 
 			glBegin(GL_QUADS);
 			{
-				Textures.getTexture(0).bind();
+				Textures.getTexture(1).bind();
 				glColor3f(0, 0, 1);
 				
 				glTexCoord2f(0, 0);
@@ -85,13 +59,6 @@ public class Game {
 				glVertex3f(0, 0, 100);
 			}
 			glEnd();
-		}
-		glPopMatrix();
-
-		glPushMatrix();
-		{
-			glRotatef(spin, -1, 2, 1);
-			test3.render();
 		}
 		glPopMatrix();
 

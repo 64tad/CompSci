@@ -15,6 +15,7 @@ public class Textures {
 		
 		//Load all textures here
 		loadTextureFromString("water");
+		loadTextureFromString("texturetest");
 	}
 
 	public static Texture getTexture(int id) {
