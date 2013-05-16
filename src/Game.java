@@ -20,7 +20,9 @@ public class Game {
 		Textures.loadTextures();
 
 		test = ModelLoder.loadModel("texturetest.obj");
-		test.scale = 0.1f;
+
+		glEnable(GL_POINT_SMOOTH);
+		// glPointSize(1.5f);
 	}
 
 	public static void update() {
@@ -44,26 +46,23 @@ public class Game {
 			glColor3f(1, 1, 1);
 			test.render();
 
+			Textures.getTexture(0).bind();
 			glBegin(GL_QUADS);
 			{
-				Textures.getTexture(1).bind();
 				glColor3f(0, 0, 1);
 				
 				glTexCoord2f(0, 0);
 				glVertex3f(0, 0, 0);
-				glTexCoord2f(1, 0);
+				glTexCoord2f(10, 0);
 				glVertex3f(100, 0, 0);
-				glTexCoord2f(1, 1);
+				glTexCoord2f(10, 10);
 				glVertex3f(100, 0, 100);
-				glTexCoord2f(0, 1);
+				glTexCoord2f(0, 10);
 				glVertex3f(0, 0, 100);
 			}
 			glEnd();
 		}
 		glPopMatrix();
-
-		// Stop all game rendering here
-
 	}
 
 }
