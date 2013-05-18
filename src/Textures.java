@@ -8,7 +8,6 @@ import org.newdawn.slick.util.ResourceLoader;
 public class Textures {
 
 	public static ArrayList<Texture> textures;
-	boolean loaded = false;
 
 	public static void loadTextures() {
 		textures = new ArrayList<Texture>();
