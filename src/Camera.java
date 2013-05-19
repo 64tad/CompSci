@@ -71,7 +71,7 @@ public class Camera {
 		glRotatef(ry, 1, 0, 0);
 		glRotatef(rx, 0, 1, 0);
 		glRotatef(rz, 0, 0, 1);
-		glTranslatef(x, y, z);
+		glTranslatef(-x, -y, -z);
 	}
 
 	public void update() {
@@ -98,13 +98,13 @@ public class Camera {
 		}
 
 		if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
-			x += SPEED * Math.cos(Math.toRadians(rx));
-			z += SPEED * Math.sin(Math.toRadians(rx));
+			x += -SPEED * Math.cos(Math.toRadians(rx));
+			z += -SPEED * Math.sin(Math.toRadians(rx));
 		}
 
 		if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-			x += -SPEED * Math.cos(Math.toRadians(rx));
-			z += -SPEED * Math.sin(Math.toRadians(rx));
+			x += SPEED * Math.cos(Math.toRadians(rx));
+			z += SPEED * Math.sin(Math.toRadians(rx));
 		}
 
 		if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
@@ -124,7 +124,7 @@ public class Camera {
 		while (Mouse.next()) {
 			int xDelta = Mouse.getEventDX();
 			int yDelta = Mouse.getEventDY();
-			rx -= xDelta * SENSITIVITY;
+			rx += xDelta * SENSITIVITY;
 			ry -= yDelta * SENSITIVITY;
 		}
 
